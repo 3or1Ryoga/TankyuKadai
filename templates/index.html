@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>ブログアプリ</h1>
-<a href="create.html" role="button">新規作成画面</a>
-<article>
-    <h2>柑橘系とは</h2>
-    <p>作成日時： 2024/11/3 10:00</p>
-    <p>こちらはミカンの収穫個数の内容です。</p>
-</article>
-<article>
-    <h2>りんごとは</h2>
-    <p>作成日時： 2024/11/17 15:00</p>
-    <p>こちらはりんごの収穫個数の内容です。</p>
-</article>
+    <h1>ブログアプリ</h1>
+    <a href="create" role="button">新規作成画面</a>
+    <a href="logout" role="button">ログアウト</a>
+    {% for post in posts %}
+    <article>
+        <h2>{{ post.title }}</h2>
+        <a href="/{{post.id}}/update" role="button">編集</a>
+        <a href="/{{post.id}}/delete" role="button">削除</a>
+        <p>作成日時： {{ post.created_at }}</p>
+        <p>{{ post.body }}</p>
+    </article>
+    {% endfor %}
 {% endblock %}
+
+<!-- { と % の間は空白を入れてはならない -->

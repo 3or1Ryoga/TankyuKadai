@@ -50,3 +50,7 @@ def hello(city):
 #>>> with app.app_context():   # アプリケーションコンテキストを設定
 #...      db.create_all()
 # instanceフォルダとblog.dbができるはず
+
+#  crudとは、 create read update delete
+
+# flaskでログイン機能を作るときは pip3 install flask-login
