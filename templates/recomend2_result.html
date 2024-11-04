@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>結果</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .result {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>アンケート結果</h1>
+        <div class="result">
+            <h2>あなたが最も興味を持っているジャンルは：</h2>
+            <h3>{{ top_interest }}</h3>
+        </div>
+        <div class="mt-4">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">もう一度アンケートを受ける</a>
+        </div>
+    </div>
+</body>
+</html>
