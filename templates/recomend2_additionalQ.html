@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>追加質問</title>
+</head>
+<body>
+    <h1>追加の質問</h1>
+    <p>{{ question }}</p>
+    <form action="/submit" method="post">
+        <input type="radio" name="追加質問" value="とても興味がある" required> とても興味がある<br>
+        <input type="radio" name="追加質問" value="興味がある"> 興味がある<br>
+        <input type="radio" name="追加質問" value="なんとも言えない"> なんとも言えない<br>
+        <input type="radio" name="追加質問" value="あまり興味がない"> あまり興味がない<br>
+        <input type="radio" name="追加質問" value="興味がない"> 興味がない<br><br>
+        <input type="submit" value="送信">
+    </form>
+</body>
+</html>

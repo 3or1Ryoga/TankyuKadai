@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>アンケート</title>
+</head>
+<body>
+    <h1>社会課題に関するアンケート</h1>
+    <form action="/submit" method="post">
+        {% for question in questions %}
+            <label>{{ question }}</label><br>
+            <input type="radio" name="{{ question }}" value="とても興味がある" required> とても興味がある<br>
+            <input type="radio" name="{{ question }}" value="興味がある"> 興味がある<br>
+            <input type="radio" name="{{ question }}" value="なんとも言えない"> なんとも言えない<br>
+            <input type="radio" name="{{ question }}" value="あまり興味がない"> あまり興味がない<br>
+            <input type="radio" name="{{ question }}" value="興味がない"> 興味がない<br><br>
+        {% endfor %}
+        <input type="submit" value="送信">
+    </form>
+</body>
+</html>
