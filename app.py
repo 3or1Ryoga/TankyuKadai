@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, logout_user , login_required
+
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
@@ -50,6 +51,7 @@ def signup():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
+
         user = User(username=username, password=generate_password_hash(password, method='pbkdf2:sha256'))
 
         db.session.add(user)
