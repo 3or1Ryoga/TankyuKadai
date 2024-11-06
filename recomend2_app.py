@@ -7,6 +7,7 @@ import os
 from dotenv import load_dotenv
 
 # import env
+# aaaa
 load_dotenv()
 
 app = Flask(__name__)
