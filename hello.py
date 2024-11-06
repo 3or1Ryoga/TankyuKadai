@@ -54,3 +54,6 @@ def hello(city):
 #  crudとは、 create read update delete
 
 # flaskでログイン機能を作るときは pip3 install flask-login
+
+# git reset --soft HEAD^　変更したコードはそのままにして、一つ前のコミットを取り消せる
+# git reset --hard HEAD^　変更したコードもろとも、一つ前に戻す
