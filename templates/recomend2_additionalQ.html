@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,22 @@
         <input type="radio" name="追加質問" value="あまり興味がない"> あまり興味がない<br>
         <input type="radio" name="追加質問" value="興味がない"> 興味がない<br><br>
         <input type="submit" value="送信">
+    </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>追加質問</title>
+</head>
+<body>
+    <h2>追加質問に答えてください</h2>
+    <p>{{ question }}</p>
+    <form action="{{ url_for('ask_additional_question') }}" method="GET">
+        <button type="submit" name="answer" value="Yes">Yes</button>
+        <button type="submit" name="answer" value="No">No</button>
     </form>
 </body>
 </html>

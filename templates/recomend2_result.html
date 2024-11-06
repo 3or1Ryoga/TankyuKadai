@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -32,4 +32,50 @@
         </div>
     </div>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あなたの取り組むべき課題</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .interest {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .task {
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>あなたの取り組むべき課題</h1>
+    <p>あなたが選択した分野: {{ topic }}</p>
+    <p>以下の課題に取り組むことを検討してください:</p>
+    <blockquote>{{ final_task }}</blockquote>
+    <a href="{{ url_for('index') }}">最初の画面に戻る</a>
+</body>
 </html>
+
