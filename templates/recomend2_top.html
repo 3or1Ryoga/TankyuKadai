@@ -1,21 +1,120 @@
-<!DOCTYPE html>
+<!--  <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>アンケート</title>
+    <title>社会課題の選択</title>
 </head>
 <body>
-    <h1>社会課題に関するアンケート</h1>
-    <form action="/submit" method="post">
-        {% for question in questions %}
-            <label>{{ question }}</label><br>
-            <input type="radio" name="{{ question }}" value="とても興味がある" required> とても興味がある<br>
-            <input type="radio" name="{{ question }}" value="興味がある"> 興味がある<br>
-            <input type="radio" name="{{ question }}" value="なんとも言えない"> なんとも言えない<br>
-            <input type="radio" name="{{ question }}" value="あまり興味がない"> あまり興味がない<br>
-            <input type="radio" name="{{ question }}" value="興味がない"> 興味がない<br><br>
+    <h1>関心のある社会課題を選んでください</h1>
+    <form action="{{ url_for('select_topic') }}" method="POST">
+        {% for topic in topics %}
+            <label>
+                <input type="radio" name="topic" value="{{ topic }}" required> {{ topic }}
+            </label><br>
         {% endfor %}
-        <input type="submit" value="送信">
+        <button type="submit">選択</button>
     </form>
 </body>
-</html>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>社会課題の選択</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f5;
+        }
+
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            
+        }
+
+        .topic-button {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            color: #393939;
+            font-size: 1.6em;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .topic-button:hover {
+            transform: scale(1.05);
+        }
+
+        .topic-button span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .topic-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.7;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        /* 背景画像の設定 */
+        .button-environment::before { background-image: url("{{ url_for('static', filename='environment.jpg') }}"); }
+        .button-humanrights::before { background-image: url("{{ url_for('static', filename='humanrights.jpg') }}"); }
+        .button-education::before { background-image: url("{{ url_for('static', filename='education.jpg') }}"); }
+        .button-peace::before { background-image: url("{{ url_for('static', filename='peace.jpg') }}"); }
+
+    </style>
+</head>
+<body> -->
+    <!-- </body>
+    </html>  -->
+
+{% extends "base.html" %}
+{% block content %}
+    <h1>関心のある社会課題を選んでください</h1>
+    <div class="button-container">
+        <form action="{{ url_for('select_topic') }}" method="POST">
+            <button type="submit" name="topic" value="環境" class="topic-button button-environment">
+                <span>環境</span>
+            </button>
+            <button type="submit" name="topic" value="人権" class="topic-button button-humanrights">
+                <span>人権</span>
+            </button>
+            <button type="submit" name="topic" value="教育" class="topic-button button-education">
+                <span>教育</span>
+            </button>
+            <button type="submit" name="topic" value="平和" class="topic-button button-peace">
+                <span>平和</span>
+            </button>
+        </form>
+    </div>
+{% endblock %}
