@@ -1,7 +1,21 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import openai
+import os
+from dotenv import load_dotenv
+
+# import env
+# aaaa
+load_dotenv()
 
 app = Flask(__name__)
+app.secret_key = os.getenv("SECRET_KEY")
+# 環境変数からAPIキーを取得
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# OPENAI_API_KEY = env.OPENAI_API_KEY
+if OPENAI_API_KEY is None:
+    raise ValueError("API key not found. Please set OPENAI_API_KEY in the .env file.")
+
+openai.api_key = OPENAI_API_KEY
 
 # 社会課題の枠組み
 topics = ["環境", "人権", "教育", "平和"]
